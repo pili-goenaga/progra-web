@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROCKOLA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <nav class="navbar navbar-expand-lg fixed-top" id='sticky'>
+        <div class="container-fluid" id="contenedor">
+            <button class="navbar-toggler order-0 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas" aria-controls="menuOffcanvas" aria-label="Toggle navigation" id="hamburguesa">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <a class="navbar-brand mx-auto order-1 order-lg-0" href="index.html" id="logo">
+                <img src="img/logo.jpg" alt="">
+            </a>
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="menuOffcanvas" aria-labelledby="menuOffcanvasLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="menuOffcanvasLabel">Menú</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar" id="botonCerrar"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- BOTON DEL USUARIO + CARRITO -->
+            <a class="navbar-brand mx-auto order-3 order-lg-2" href="usuario.html" id="usuario">
+                <img src="img/usuario.png" alt="">
+            </a>
+            
+            <!-- BOTÓN DEL CARRITO -->
+            <button class="btn btn-primary navbar-brand mx-auto order-4 order-lg-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#carritoOffcanvas" aria-controls="carritoOffcanvas" id="botonCarrito">
+                <img src="img/carrito.png" id='imagenCarrito' alt="">
+            </button>   
+    </nav>
+    <header>
+        <h1>ROCKOLA</h1>
+        <nav>
+            <ul>
+                <li><a href="#home" target="_blank">Home</a></li>
+                <li><a href="#about" target="_blank">About</a></li>
+                <li><a href="#services" target="_blank">Products</a></li>
+                <li><a href="#contact" target="_blank">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Welcome to ROCKOLA!</h2>
+        <p>disqueria bro jajajaj </p>
+    </section>
+
+    <section id="about">
+        <h2>sobre nostros</h2>
+        <p>algo </p>
+    </section>
+
+    <section id="services">
+        <h2>Productos</h2>
+        <ul>
+            <li>Vinilos</li>
+            <li>CDs</li>
+            <li>Parlantes</li>
+            <li>Accesorios</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contactanos</h2>
+        <form action="#" method="post">
+            <label for="name">Nombre:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Mensaje:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 ROCKOLA. All rights reserved.</p>
+    </footer>
