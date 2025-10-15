@@ -36,9 +36,8 @@ header .container {
     justify-content: space-between;
     align-items: center;
 }
-
 .logo {
-    font-family: 'Bebas Neue', sans-serif; 
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 3.5rem;
     color: var(--text-dark);
     text-decoration: none;
@@ -59,12 +58,12 @@ header nav a {
     text-decoration: none;
     font-weight: 700;
     font-size: 1rem;
+    text-transform: uppercase;
     transition: color 0.3s ease;
 }
 header nav a:hover {
     color: var(--accent-color);
 }
-
 /* --- HERO SECTION --- */
 .hero {
     text-align: center;
@@ -143,10 +142,35 @@ header nav a:hover {
 }
 
 /* --- CARRITO Y BOTONES --- */
+.header-acciones {
+    display: flex;
+    align-items: center; /* <-- Esto alinea verticalmente los emojis */
+    gap: 25px;           /* <-- Espacio entre el emoji de cuenta y el carrito */
+}
+
+/* --- Emoji de Cuenta --- */
+.btn-cuenta {
+    font-size: 1.5rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+.btn-cuenta:hover {
+    transform: scale(1.1);
+}
+
+/* --- Ícono del Carrito --- */
 .carrito-icono a {
     position: relative;
     font-size: 1.5rem;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+.carrito-icono a:hover {
+    transform: scale(1.1);
 }
 .contador {
     position: absolute;
@@ -159,22 +183,6 @@ header nav a:hover {
     font-size: 0.8rem;
     font-family: var(--font-body);
     font-weight: bold;
-}
-.btn-comprar {
-    width: 100%;
-    padding: 12px;
-    margin-top: 15px;
-    background-color: transparent;
-    color: var(--text-dark);
-    border: 1px solid var(--text-dark);
-    font-family: var(--font-body);
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.btn-comprar:hover {
-    background-color: var(--text-dark);
-    color: var(--bg-paper);
 }
 
 /* --- FOOTER --- */
@@ -313,5 +321,94 @@ body.fondo-contacto {
 @media (min-width: 768px) {
     .nosotros-layout {
         grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    }
+}
+
+
+.nosotros-imagen-divisor {
+    text-align: center; /* Centra la imagen dentro de su contenedor */
+    padding: 60px 0; /* Espacio vertical para separar las imágenes del contenido */
+}
+
+.img-divisor {
+    max-width: 800px; /* Ancho máximo para que no sea demasiado grande */
+    width: 100%; /* La imagen ocupará el 100% del ancho disponible hasta el max-width */
+    height: auto;
+    display: block; /* Para centrar con margin auto */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    border: 1px solid var(--border-color); /* Un borde sutil como en el resto de la estética */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Una pequeña sombra */
+}
+
+/* También ajustamos el .pagina-contenido de nosotros para que el texto esté más cerca de las imágenes */
+.pagina-contenido {
+    padding: 60px 0; /* Ajustamos el padding para que no haya tanto espacio en blanco */
+}
+
+/* --- (REEMPLAZA EL BLOQUE ANTERIOR CON ESTE) --- */
+
+/* --- ESTILOS EXCLUSIVOS PARA LOGIN Y REGISTRO (CON FOTO) --- */
+
+/* Contenedor principal del layout de 2 columnas */
+.auth-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto para móviles */
+}
+
+/* Columna de la imagen */
+.auth-imagen {
+    display: none; /* Ocultamos la imagen en móviles */
+}
+
+.auth-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen cubre todo el espacio sin deformarse */
+}
+
+/* Columna del formulario */
+.auth-container {
+    padding: 60px 30px; /* Padding para el contenido del formulario */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-container h1 {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.auth-container p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* --- (El resto de los estilos del formulario como .form-grupo, .form-link, etc. se mantienen igual) --- */
+
+/* Media Query para pantallas de escritorio */
+@media (min-width: 992px) {
+    .auth-layout {
+        grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+        min-height: calc(100vh - 100px); /* Ocupa casi toda la altura de la pantalla */
+    }
+
+    .auth-imagen {
+        display: block; /* Mostramos la imagen en escritorio */
+    }
+
+    .auth-container {
+        padding: 60px;
+    }
+
+    .auth-container h1,
+    .auth-container p {
+        text-align: left; /* Alineamos a la izquierda en escritorio */
     }
 }
