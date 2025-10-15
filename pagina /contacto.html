@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Rockola</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="fondo-contacto">
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">ROCKOLA</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="carrito-icono">
+                <a href="#">
+                    🛒
+                    <span id="carrito-contador" class="contador">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container pagina-contenido">
+            <h1>Contacto</h1>
+            <p>¿Tenés alguna pregunta, consulta o simplemente querés charlar de música? <br>Dejanos un mensaje y te respondemos a la brevedad.</p>
+            
+            <form id="formulario-contacto" class="formulario">
+                <div class="form-grupo">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
+
+            <div id="mensaje-confirmacion" style="display:none; margin-top: 40px;">
+                <h2>¡Gracias por tu mensaje!</h2>
+                <p>Lo recibimos correctamente. Te contactaremos pronto.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Rockola Store</p>
+        </div>
+    </footer>
+
+    <script src="contacto.js"></script>
+</body>
+</html>

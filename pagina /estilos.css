@@ -1,0 +1,317 @@
+/* --- VARIABLES: ESTÉTICA "MÁQUINA DE ESCRIBIR" --- */
+:root {
+    --bg-paper: #f9f6f1;
+    --text-dark: #2c2c2c;
+    --border-color: #e4e0d7;
+    --accent-color: #a08a72; /* Un marrón sutil y cálido */
+    --font-title: 'Oswald', sans-serif; /* <-- Para H2, H3, etc. */
+    --font-body: 'Roboto', sans-serif; /* <-- Para todo el texto normal */
+
+}
+
+/* --- ESTILOS GLOBALES --- */
+body {
+    background-color: var(--bg-paper);
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- HEADER --- */
+header {
+    padding: 25px 0;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-paper);
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Bebas Neue', sans-serif; 
+    font-size: 3.5rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+header nav {
+    flex-grow: 1;
+    text-align: center;
+}
+header nav ul {
+    list-style: none;
+    display: inline-flex;
+    gap: 40px;
+    margin: 0;
+}
+header nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+header nav a:hover {
+    color: var(--accent-color);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    text-align: center;
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.hero h1 {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+.hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    opacity: 0.8;
+}
+.btn {
+    display: inline-block;
+    background-color: var(--text-dark);
+    color: var(--bg-paper);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: var(--font-body);
+    border: 1px solid var(--text-dark);
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    background-color: transparent;
+    color: var(--text-dark);
+}
+
+/* --- SECCIÓN DESTACADOS --- */
+.destacados {
+    padding: 80px 0;
+}
+.destacados h2 {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.producto-card {
+    text-align: center;
+}
+.producto-card img {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 15px;
+}
+.producto-card h3 {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0;
+}
+.producto-card p {
+    font-size: 1rem;
+    margin: 5px 0 10px;
+    opacity: 0.7;
+}
+.producto-card span {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* --- CARRITO Y BOTONES --- */
+.carrito-icono a {
+    position: relative;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+.contador {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background-color: var(--text-dark);
+    color: var(--bg-paper);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+    font-weight: bold;
+}
+.btn-comprar {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: transparent;
+    color: var(--text-dark);
+    border: 1px solid var(--text-dark);
+    font-family: var(--font-body);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-comprar:hover {
+    background-color: var(--text-dark);
+    color: var(--bg-paper);
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    background-color: var(--bg-paper);
+}
+
+
+/* --- ESTILOS PARA LA PÁGINA DE CATÁLOGO --- */
+
+.pagina-productos {
+    padding: 80px 0;
+}
+
+.pagina-productos h1 {
+    font-family: var(--font-title);
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+/* --- ESTILOS PARA PÁGINA DE CONTACTO*/
+.pagina-contenido {
+    padding: 80px 0;
+    max-width: 700px; /* Limitamos el ancho para que el texto y el form sean legibles */
+    margin: 0 auto;
+}
+
+.pagina-contenido h1 {
+    font-family: var(--font-title);
+    font-size: 3.5rem;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.pagina-contenido p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+/* --- ESTILOS DEL FORMULARIO DE CONTACTO --- */
+
+body.fondo-contacto {
+    background-image: url("https://i.pinimg.com/736x/b6/8f/11/b68f115da67573d1f520db5813bc3bd5.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+}
+
+/* 2. Estilos para el "rectángulo" que contiene el formulario */
+.pagina-contenido {
+    padding: 50px;
+    max-width: 700px;
+    margin: 80px auto; /* Margen superior/inferior para separarlo del header/footer */
+    background-color: var(--bg-paper); /* Fondo sólido para tapar la imagen */
+    border: 1px solid var(--border-color); /* Borde para el rectángulo */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra sutil para darle profundidad */
+}
+
+/* 3. Estilos para el título y texto dentro del rectángulo */
+.pagina-contenido h1 {
+    font-family: var(--font-title);
+    font-size: 3.5rem;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.pagina-contenido p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+/* 4. Estilos para el formulario en sí */
+.formulario {
+    text-align: left;
+}
+.form-grupo {
+    margin-bottom: 25px;
+}
+.form-grupo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.form-grupo input,
+.form-grupo textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    background-color: #fff;
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+.form-grupo input:focus,
+.form-grupo textarea:focus {
+    outline: none;
+    border-color: var(--text-dark);
+}
+
+/* --- ESTILOS PARA LA PÁGINA "NOSOTROS" --- */
+
+.nosotros-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Por defecto, una sola columna para móviles */
+    gap: 50px; /* Espacio entre el texto y la imagen */
+    align-items: center;
+}
+
+.nosotros-texto h1 {
+    font-size: 3rem; /* El título H1 aquí es un poco más pequeño que en otras páginas */
+    margin-bottom: 30px;
+}
+
+.nosotros-imagen img {
+    width: 100%;
+    height: auto;
+}
+
+/* Media Query para pantallas más grandes (Desktop) */
+@media (min-width: 768px) {
+    .nosotros-layout {
+        grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    }
+}

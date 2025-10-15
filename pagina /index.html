@@ -1,16 +1,18 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rockola - Inicio</title>
+    <title>ROCKOLA - Inicio </title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+
     <header>
         <div class="container">
             <a href="index.html" class="logo">ROCKOLA</a>
@@ -32,16 +34,25 @@
     </header>
 
     <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Una selección personal de música atemporal.</h1>
+                <p>Vinilos curados para quienes todavía disfrutan el ritual de escuchar un disco de principio a fin.</p>
+                <a href="productos.html" class="btn">Ver la colección</a>
+            </div>
+        </section>
+
         <section class="destacados">
             <div class="container">
-                <h2>ÚLTIMOS LANZAMIENTOS</h2>
+                <h2>Novedades en la batea</h2>
                 <div class="productos-grid">
+                    
                     <div class="producto-card">
                         <img src="https://via.placeholder.com/300x300.png?text=Album+Cover" alt="Portada del álbum">
                         <h3>Abbey Road</h3>
                         <p>The Beatles</p>
                         <span>$3500</span>
-                        <button class="btn-comprar">Agregar al Carrito</button>
+                        <button class="btn-comprar" data-id="1">Agregar al Carrito</button>
                     </div>
 
                     <div class="producto-card">
@@ -49,7 +60,7 @@
                         <h3>The Dark Side of the Moon</h3>
                         <p>Pink Floyd</p>
                         <span>$4000</span>
-                        <button class="btn-comprar">Agregar al Carrito</button>
+                        <button class="btn-comprar" data-id="2">Agregar al Carrito</button>
                     </div>
 
                     <div class="producto-card">
@@ -57,13 +68,20 @@
                         <h3>Rumours</h3>
                         <p>Fleetwood Mac</p>
                         <span>$3200</span>
-                        <button class="btn-comprar">Agregar al Carrito</button>
+                        <button class="btn-comprar" data-id="3">Agregar al Carrito</button>
                     </div>
+
                 </div>
             </div>
         </section>
     </main>
-    
 
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 ROCKOLA</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
