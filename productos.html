@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -26,7 +25,6 @@
             </nav>
             <div class="header-acciones">
                 <a href="login.html" class="btn-cuenta" title="Mi Cuenta">😋</a>
-
                 <div class="carrito-icono">
                     <a href="#">
                         🛒
@@ -54,6 +52,24 @@
         </div>
     </footer>
 
-    <script src="productos.js"></script>
+    <div id="carrito-panel" class="carrito-panel">
+        <div class="carrito-header">
+            <h2>Mi Carrito</h2>
+            <button id="cerrar-carrito" class="cerrar-carrito">×</button>
+        </div>
+        <div id="carrito-items" class="carrito-items"></div>
+        <div class="carrito-footer">
+            <div class="carrito-total">
+                <strong>Total:</strong>
+                <span id="carrito-total-precio">$0</span>
+            </div>
+            <a href="#" id="btn-finalizar-compra" class="btn btn-finalizar">Ir a Pagar</a>
+            <button id="btn-vaciar-carrito" class="btn btn-vaciar">Vaciar Carrito</button>
+        </div>
+    </div>
+    <div id="carrito-overlay" class="carrito-overlay"></div>
+    <div id="toast-agregado" class="toast"><p></p></div>
+    <script src="main.js"></script>
+
 </body>
 </html>

@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROCKOLA - Inicio </title>
+    <title>Rockola - Inicio</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -26,7 +25,6 @@
             </nav>
             <div class="header-acciones">
                 <a href="login.html" class="btn-cuenta" title="Mi Cuenta">😋</a>
-
                 <div class="carrito-icono">
                     <a href="#">
                         🛒
@@ -40,7 +38,7 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Una selección personal de música atemporal.</h1>
+                <h1>EL SONIDO REAL NUNCA MUERE.</h1>
                 <p>Vinilos curados para quienes todavía disfrutan el ritual de escuchar un disco de principio a fin.</p>
                 <a href="productos.html" class="btn">Ver la colección</a>
             </div>
@@ -52,27 +50,24 @@
                 <div class="productos-grid">
                     
                     <div class="producto-card">
-                        <img src="https://via.placeholder.com/300x300.png?text=Album+Cover" alt="Portada del álbum">
-                        <h3>Abbey Road</h3>
-                        <p>The Beatles</p>
+                        <img src="https://fontainesdc.com/cdn/shop/products/SKINTY-LP.png?v=1657616070" alt="Skinty Fia">
+                        <h3>Skinty Fia, Fontaines D.C.</h3>
                         <span>$3500</span>
                         <button class="btn-comprar" data-id="1">Agregar al Carrito</button>
                     </div>
 
                     <div class="producto-card">
-                        <img src="https://via.placeholder.com/300x300.png?text=Album+Cover" alt="Portada del álbum">
-                        <h3>The Dark Side of the Moon</h3>
-                        <p>Pink Floyd</p>
+                        <img src="https://recordstore.co.uk/cdn/shop/files/B2D_-_Vinyl_1.png?v=1743016688" alt="Born to Die: The Paradise Edition">
+                        <h3>Born to Die: The Paradise Edition, Lana del Rey</h3>
                         <span>$4000</span>
                         <button class="btn-comprar" data-id="2">Agregar al Carrito</button>
                     </div>
 
                     <div class="producto-card">
-                        <img src="https://via.placeholder.com/300x300.png?text=Album+Cover" alt="Portada del álbum">
-                        <h3>Rumours</h3>
-                        <p>Fleetwood Mac</p>
-                        <span>$3200</span>
-                        <button class="btn-comprar" data-id="3">Agregar al Carrito</button>
+                        <img src="https://sound-merch.com.au/cdn/shop/products/BH-7_1024x1024.png?v=1655268046" alt="7">
+                        <h3>7, Beach House  </h3>
+                        <span>$3800</span>
+                        <button class="btn-comprar" data-id="4">Agregar al Carrito</button>
                     </div>
 
                 </div>
@@ -82,10 +77,28 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 ROCKOLA</p>
+            <p>&copy; 2025 Rockola Store</p>
         </div>
     </footer>
 
+    <div id="carrito-panel" class="carrito-panel">
+        <div class="carrito-header">
+            <h2>Mi Carrito</h2>
+            <button id="cerrar-carrito" class="cerrar-carrito">×</button>
+        </div>
+        <div id="carrito-items" class="carrito-items"></div>
+        <div class="carrito-footer">
+            <div class="carrito-total">
+                <strong>Total:</strong>
+                <span id="carrito-total-precio">$0</span>
+            </div>
+            <a href="#" id="btn-finalizar-compra" class="btn btn-finalizar">Ir a Pagar</a>
+            <button id="btn-vaciar-carrito" class="btn btn-vaciar">Vaciar Carrito</button>
+        </div>
+    </div>
+    <div id="carrito-overlay" class="carrito-overlay"></div>
+    <div id="toast-agregado" class="toast"><p></p></div>
+    <script src="main.js"></script>
 
 </body>
 </html>

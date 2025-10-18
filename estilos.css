@@ -1,12 +1,11 @@
-/* --- VARIABLES: ESTÉTICA "MÁQUINA DE ESCRIBIR" --- */
+/* --- VARIABLES: ESTÉTICA FINAL --- */
 :root {
     --bg-paper: #f9f6f1;
     --text-dark: #2c2c2c;
     --border-color: #e4e0d7;
-    --accent-color: #a08a72; /* Un marrón sutil y cálido */
-    --font-title: 'Oswald', sans-serif; /* <-- Para H2, H3, etc. */
-    --font-body: 'Roboto', sans-serif; /* <-- Para todo el texto normal */
-
+    --accent-color: #a08a72;
+    --font-title: 'Oswald', sans-serif;
+    --font-body: 'Roboto', sans-serif;
 }
 
 /* --- ESTILOS GLOBALES --- */
@@ -18,11 +17,26 @@ body {
     padding: 0;
     line-height: 1.6;
 }
-
 .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
+}
+.btn {
+    display: inline-block;
+    background-color: var(--text-dark);
+    color: var(--bg-paper);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 1px solid var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    background-color: transparent;
+    color: var(--text-dark);
 }
 
 /* --- HEADER --- */
@@ -64,91 +78,11 @@ header nav a {
 header nav a:hover {
     color: var(--accent-color);
 }
-/* --- HERO SECTION --- */
-.hero {
-    text-align: center;
-    padding: 80px 0;
-    border-bottom: 1px solid var(--border-color);
-}
-.hero h1 {
-    font-family: var(--font-title);
-    font-size: 2.5rem;
-    font-weight: 400;
-    max-width: 600px;
-    margin: 0 auto 20px;
-}
-.hero p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 30px;
-    opacity: 0.8;
-}
-.btn {
-    display: inline-block;
-    background-color: var(--text-dark);
-    color: var(--bg-paper);
-    padding: 12px 30px;
-    text-decoration: none;
-    font-weight: 700;
-    font-family: var(--font-body);
-    border: 1px solid var(--text-dark);
-    transition: all 0.3s ease;
-}
-.btn:hover {
-    background-color: transparent;
-    color: var(--text-dark);
-}
-
-/* --- SECCIÓN DESTACADOS --- */
-.destacados {
-    padding: 80px 0;
-}
-.destacados h2 {
-    font-family: var(--font-title);
-    font-weight: 700;
-    font-size: 1.8rem;
-    text-align: center;
-    margin-bottom: 50px;
-}
-.productos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-.producto-card {
-    text-align: center;
-}
-.producto-card img {
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    margin-bottom: 15px;
-}
-.producto-card h3 {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin: 0;
-}
-.producto-card p {
-    font-size: 1rem;
-    margin: 5px 0 10px;
-    opacity: 0.7;
-}
-.producto-card span {
-    display: block;
-    font-size: 1rem;
-    font-weight: 700;
-}
-
-/* --- CARRITO Y BOTONES --- */
 .header-acciones {
     display: flex;
-    align-items: center; /* <-- Esto alinea verticalmente los emojis */
-    gap: 25px;           /* <-- Espacio entre el emoji de cuenta y el carrito */
+    align-items: center;
+    gap: 25px;
 }
-
-/* --- Emoji de Cuenta --- */
 .btn-cuenta {
     font-size: 1.5rem;
     text-decoration: none;
@@ -160,7 +94,7 @@ header nav a:hover {
     transform: scale(1.1);
 }
 
-/* --- Ícono del Carrito --- */
+/* --- CARRITO --- */
 .carrito-icono a {
     position: relative;
     font-size: 1.5rem;
@@ -185,6 +119,175 @@ header nav a:hover {
     font-weight: bold;
 }
 
+/* --- PANEL DEL CARRITO --- */
+.carrito-panel {
+    position: fixed; top: 0; right: 0; width: 400px; max-width: 90%; height: 100%;
+    background-color: var(--bg-paper); box-shadow: -5px 0 15px rgba(0,0,0,0.15);
+    z-index: 1000; display: flex; flex-direction: column;
+    transform: translateX(100%); transition: transform 0.3s ease-in-out;
+}
+.carrito-panel.visible { transform: translateX(0); }
+.carrito-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5); z-index: 999;
+    opacity: 0; visibility: hidden; transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+.carrito-overlay.visible { opacity: 1; visibility: visible; }
+.carrito-header { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid var(--border-color); }
+.carrito-header h2 { font-family: var(--font-title); margin: 0; font-size: 1.8rem; }
+.cerrar-carrito { background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--text-dark); }
+.carrito-items { flex-grow: 1; overflow-y: auto; padding: 20px; }
+.carrito-item { display: flex; align-items: center; margin-bottom: 20px; }
+.carrito-item img { width: 80px; height: 80px; object-fit: cover; margin-right: 15px; }
+.carrito-item-info { flex-grow: 1; }
+.carrito-item-info h4 { margin: 0 0 5px 0; font-family: var(--font-title); font-size: 1.1rem; }
+.carrito-item-info p { margin: 0; opacity: 0.8; }
+.carrito-item-cantidad { display: flex; align-items: center; gap: 10px; margin-top: 5px; }
+.btn-cantidad { background-color: var(--border-color); border: none; width: 25px; height: 25px; border-radius: 50%; font-weight: bold; cursor: pointer; }
+.carrito-footer { padding: 20px; border-top: 1px solid var(--border-color); }
+.carrito-total { display: flex; justify-content: space-between; font-size: 1.2rem; margin-bottom: 20px; }
+.btn-finalizar, .btn-vaciar { width: 100%; text-align: center; box-sizing: border-box; }
+.btn-finalizar {
+    display: block; /* Para que funcione como un botón */
+    margin-bottom: 10px;
+}
+.btn-vaciar { 
+    margin-top: 10px; background-color: transparent; border: 1px solid #cc0000; color: #cc0000;
+    padding: 12px; font-family: var(--font-body); font-weight: 700; cursor: pointer; text-transform: uppercase;
+}
+.btn-vaciar:hover { background-color: #cc0000; color: white; }
+
+/* --- NOTIFICACIÓN TOAST --- */
+.toast {
+    position: fixed; bottom: 20px; right: 20px; background-color: var(--text-dark);
+    color: var(--bg-paper); padding: 15px 25px; border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 2000;
+    opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;
+    visibility: hidden;
+}
+.toast.visible { opacity: 1; transform: translateY(0); visibility: visible; }
+
+/* --- PRODUCTOS Y DESTACADOS --- */
+.hero { text-align: center; padding: 80px 0; border-bottom: 1px solid var(--border-color); }
+.hero h1 { font-family: var(--font-title); font-size: 3.5rem; font-weight: 500; max-width: 800px; margin: 0 auto 20px; text-transform: uppercase; }
+.hero p { font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; opacity: 0.8; }
+.destacados { padding: 80px 0; }
+.destacados h2 { font-family: var(--font-title); font-weight: 500; font-size: 2.5rem; text-align: center; margin-bottom: 50px; text-transform: uppercase; }
+.productos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.producto-card { text-align: center; }
+.producto-card img { max-width: 100%; height: auto; aspect-ratio: 1 / 1; margin-bottom: 15px; }
+.producto-card h3 { font-family: var(--font-title); font-weight: 500; font-size: 1.5rem; margin: 0; }
+.producto-card p { font-size: 1rem; margin: 5px 0 10px; opacity: 0.7; }
+.producto-card span { display: block; font-size: 1.2rem; font-weight: 700; }
+.btn-comprar { width: 100%; padding: 12px; margin-top: 15px; background-color: transparent; color: var(--text-dark); border: 1px solid var(--text-dark); font-family: var(--font-body); font-weight: 700; cursor: pointer; text-transform: uppercase; transition: all 0.3s ease; }
+.btn-comprar:hover { background-color: var(--text-dark); color: var(--bg-paper); }
+.pagina-productos h1 { font-family: var(--font-title); font-size: 3rem; font-weight: 500; text-align: center; margin-bottom: 50px; text-transform: uppercase; }
+
+
+/* --- LOGIN Y REGISTRO CON FOTO --- */
+.auth-layout { display: grid; grid-template-columns: 1fr; }
+.auth-imagen { display: none; }
+.auth-imagen img { width: 100%; height: 100%; object-fit: cover; }
+.auth-container { padding: 60px 30px; display: flex; flex-direction: column; justify-content: center; }
+.auth-container h1 { font-family: var(--font-title); font-size: 2.5rem; font-weight: 500; margin-bottom: 15px; text-transform: uppercase; text-align: center; }
+.auth-container p { font-size: 1.1rem; margin-bottom: 40px; opacity: 0.8; text-align: center; }
+.auth-container .formulario { text-align: left; }
+.auth-container .form-grupo { margin-bottom: 20px; }
+.auth-container .form-grupo label { display: block; margin-bottom: 8px; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.auth-container .form-grupo input { width: 100%; padding: 15px; border: 1px solid var(--border-color); background-color: #fff; color: var(--text-dark); font-family: var(--font-body); font-size: 1rem; box-sizing: border-box; transition: border-color 0.3s ease; }
+.auth-container .form-grupo input:focus { outline: none; border-color: var(--text-dark); }
+.auth-container .form-link { text-align: center; margin-top: 30px; font-size: 0.9rem; }
+.auth-container .form-link a { color: var(--text-dark); font-weight: 700; text-decoration: underline; }
+
+@media (min-width: 992px) {
+    .auth-layout { grid-template-columns: 1fr 1fr; min-height: calc(100vh - 100px); }
+    .auth-imagen { display: block; }
+    .auth-container { padding: 60px; }
+    .auth-container h1, .auth-container p { text-align: left; }
+}
+
+/* --- PÁGINA DE CONTACTO --- */
+body.fondo-contacto {
+    background-image: url('https://i.pinimg.com/736x/b6/8f/11/b68f115da67573d1f520db5813bc3bd5.jpg');
+    background-size: cover; background-position: center; background-attachment: fixed;
+}
+.pagina-contenido {
+    padding: 50px; max-width: 700px; margin: 80px auto;
+    background-color: var(--bg-paper); border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+.pagina-contenido h1 { font-family: var(--font-title); font-size: 3.5rem; font-weight: 500; text-align: left; margin-bottom: 20px; text-transform: uppercase; }
+.pagina-contenido p { font-size: 1.1rem; margin-bottom: 40px; opacity: 0.8; }
+.formulario { text-align: left; }
+.form-grupo { margin-bottom: 25px; }
+.form-grupo label { display: block; margin-bottom: 8px; font-weight: 700; font-size: 1rem; text-transform: uppercase; }
+.form-grupo input, .form-grupo textarea { width: 100%; padding: 15px; border: 1px solid var(--border-color); background-color: #fff; color: var(--text-dark); font-family: var(--font-body); font-size: 1rem; box-sizing: border-box; }
+.form-grupo input:focus, .form-grupo textarea:focus { outline: none; border-color: var(--text-dark); }
+
+/* --- PÁGINA NOSOTROS --- */
+
+/* --- (PEGA ESTO AL FINAL DE TU CSS) --- */
+
+/* --- CUARTO DISEÑO PÁGINA "NOSOTROS" (ESTILO EDITORIAL) --- */
+
+/* 1. El banner (sigue igual) */
+.nosotros-hero {
+    padding: 80px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #fff;
+}
+.nosotros-hero h1 {
+    font-family: var(--font-title);
+    font-size: 3.5rem;
+    font-weight: 500;
+    max-width: 800px;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+
+/* 2. El contenedor del texto (para intro y cierre) */
+.nosotros-contenido {
+    padding: 80px 0;
+}
+.nosotros-contenido .container {
+    max-width: 700px; /* Ancho de lectura ideal */
+}
+.nosotros-contenido p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    text-align: left; /* NO justificar. Es más limpio. */
+}
+
+/* 3. La imagen media (la que antes flotaba) */
+.nosotros-foto-media {
+    padding-bottom: 80px;
+}
+.nosotros-foto-media .container {
+    max-width: 700px; /* Mismo ancho que el texto para alinear */
+}
+.nosotros-foto-media img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 4. La foto final (sigue igual) */
+.nosotros-foto-final {
+    padding-bottom: 80px;
+}
+.nosotros-foto-final .container {
+    max-width: 900px; /* Un poco más ancha para impacto */
+}
+.nosotros-foto-final img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
 /* --- FOOTER --- */
 footer {
     text-align: center;
@@ -193,279 +296,4 @@ footer {
     border-top: 1px solid var(--border-color);
     font-size: 0.9rem;
     background-color: var(--bg-paper);
-}
-
-
-/* --- ESTILOS PARA LA PÁGINA DE CATÁLOGO --- */
-
-.pagina-productos {
-    padding: 80px 0;
-}
-
-.pagina-productos h1 {
-    font-family: var(--font-title);
-    font-size: 3rem;
-    font-weight: 500;
-    text-align: center;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-}
-
-/* --- ESTILOS PARA PÁGINA DE CONTACTO*/
-.pagina-contenido {
-    padding: 80px 0;
-    max-width: 700px; /* Limitamos el ancho para que el texto y el form sean legibles */
-    margin: 0 auto;
-}
-
-.pagina-contenido h1 {
-    font-family: var(--font-title);
-    font-size: 3.5rem;
-    font-weight: 500;
-    text-align: left;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.pagina-contenido p {
-    font-size: 1.1rem;
-    margin-bottom: 40px;
-    opacity: 0.8;
-}
-
-/* --- ESTILOS DEL FORMULARIO DE CONTACTO --- */
-
-body.fondo-contacto {
-    background-image: url("https://i.pinimg.com/736x/b6/8f/11/b68f115da67573d1f520db5813bc3bd5.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
-}
-
-/* 2. Estilos para el "rectángulo" que contiene el formulario */
-.pagina-contenido {
-    padding: 50px;
-    max-width: 700px;
-    margin: 80px auto; /* Margen superior/inferior para separarlo del header/footer */
-    background-color: var(--bg-paper); /* Fondo sólido para tapar la imagen */
-    border: 1px solid var(--border-color); /* Borde para el rectángulo */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra sutil para darle profundidad */
-}
-
-/* 3. Estilos para el título y texto dentro del rectángulo */
-.pagina-contenido h1 {
-    font-family: var(--font-title);
-    font-size: 3.5rem;
-    font-weight: 500;
-    text-align: left;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-.pagina-contenido p {
-    font-size: 1.1rem;
-    margin-bottom: 40px;
-    opacity: 0.8;
-}
-
-/* 4. Estilos para el formulario en sí */
-.formulario {
-    text-align: left;
-}
-.form-grupo {
-    margin-bottom: 25px;
-}
-.form-grupo label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 700;
-    font-size: 1rem;
-    text-transform: uppercase;
-}
-.form-grupo input,
-.form-grupo textarea {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid var(--border-color);
-    background-color: #fff;
-    color: var(--text-dark);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    box-sizing: border-box;
-}
-.form-grupo input:focus,
-.form-grupo textarea:focus {
-    outline: none;
-    border-color: var(--text-dark);
-}
-
-/* --- ESTILOS PARA LA PÁGINA "NOSOTROS" --- */
-
-.nosotros-layout {
-    display: grid;
-    grid-template-columns: 1fr; /* Por defecto, una sola columna para móviles */
-    gap: 50px; /* Espacio entre el texto y la imagen */
-    align-items: center;
-}
-
-.nosotros-texto h1 {
-    font-size: 3rem; /* El título H1 aquí es un poco más pequeño que en otras páginas */
-    margin-bottom: 30px;
-}
-
-.nosotros-imagen img {
-    width: 100%;
-    height: auto;
-}
-
-/* Media Query para pantallas más grandes (Desktop) */
-@media (min-width: 768px) {
-    .nosotros-layout {
-        grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
-    }
-}
-
-
-.nosotros-imagen-divisor {
-    text-align: center; /* Centra la imagen dentro de su contenedor */
-    padding: 60px 0; /* Espacio vertical para separar las imágenes del contenido */
-}
-
-.img-divisor {
-    max-width: 800px; /* Ancho máximo para que no sea demasiado grande */
-    width: 100%; /* La imagen ocupará el 100% del ancho disponible hasta el max-width */
-    height: auto;
-    display: block; /* Para centrar con margin auto */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
-    border: 1px solid var(--border-color); /* Un borde sutil como en el resto de la estética */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Una pequeña sombra */
-}
-
-/* También ajustamos el .pagina-contenido de nosotros para que el texto esté más cerca de las imágenes */
-.pagina-contenido {
-    padding: 60px 0; /* Ajustamos el padding para que no haya tanto espacio en blanco */
-}
-
-/* --- (REEMPLAZA EL BLOQUE ANTERIOR CON ESTE) --- */
-
-/* --- ESTILOS EXCLUSIVOS PARA LOGIN Y REGISTRO (CON FOTO) --- */
-
-/* Contenedor principal del layout de 2 columnas */
-.auth-layout {
-    display: grid;
-    grid-template-columns: 1fr; /* Una columna por defecto para móviles */
-}
-
-/* Columna de la imagen */
-.auth-imagen {
-    display: none; /* Ocultamos la imagen en móviles */
-}
-
-.auth-imagen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* La imagen cubre todo el espacio sin deformarse */
-}
-
-/* Columna del formulario */
-.auth-container {
-    padding: 60px 30px; /* Padding para el contenido del formulario */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.auth-container h1 {
-    font-family: var(--font-title);
-    font-size: 2.5rem;
-    font-weight: 500;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.auth-container p {
-    font-size: 1.1rem;
-    margin-bottom: 40px;
-    opacity: 0.8;
-    text-align: center;
-}
-
-/* --- (El resto de los estilos del formulario como .form-grupo, .form-link, etc. se mantienen igual) --- */
-
-/* Media Query para pantallas de escritorio */
-@media (min-width: 992px) {
-    .auth-layout {
-        grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
-        min-height: calc(100vh - 100px); /* Ocupa casi toda la altura de la pantalla */
-    }
-
-    .auth-imagen {
-        display: block; /* Mostramos la imagen en escritorio */
-    }
-
-    .auth-container {
-        padding: 60px;
-    }
-
-    .auth-container h1,
-    .auth-container p {
-        text-align: left; /* Alineamos a la izquierda en escritorio */
-    }
-}
-
-/* --- ESTILOS ACTUALIZADOS DEL CARRITO --- */
-
-/* Contenedor de cantidad y botones +/- */
-.carrito-item-cantidad {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 5px;
-}
-.btn-cantidad {
-    background-color: var(--border-color);
-    border: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* Botón para vaciar el carrito */
-.btn-vaciar {
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
-    margin-top: 10px;
-    background-color: transparent;
-    border: 1px solid #cc0000;
-    color: #cc0000;
-}
-.btn-vaciar:hover {
-    background-color: #cc0000;
-    color: white;
-}
-
-/* Estilos para la notificación TOAST */
-.toast {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--text-dark);
-    color: var(--bg-paper);
-    padding: 15px 25px;
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 2000;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    visibility: hidden;
-}
-
-.toast.visible {
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
 }

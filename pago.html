@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Rockola</title>
+    <title>Finalizar Compra - Rockola</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="estilos.css">
 </head>
-<body class="fondo-contacto">
+<body>
 
     <header>
         <div class="container">
@@ -26,7 +26,6 @@
             </nav>
             <div class="header-acciones">
                 <a href="login.html" class="btn-cuenta" title="Mi Cuenta">😋</a>
-
                 <div class="carrito-icono">
                     <a href="#">
                         🛒
@@ -39,29 +38,29 @@
 
     <main>
         <div class="container pagina-contenido">
-            <h1>Contacto</h1>
-            <p>¿Tenés alguna pregunta, consulta o simplemente querés charlar de música? <br>Dejanos un mensaje y te respondemos a la brevedad.</p>
+            <h1>Finalizar Compra</h1>
+            <p>Este es el último paso. Completá tus datos para terminar la compra.</p>
             
-            <form id="formulario-contacto" class="formulario">
+            <form id="formulario-pago" class="formulario">
                 <div class="form-grupo">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" required>
+                    <label for="nombre-tarjeta">Nombre en la Tarjeta</label>
+                    <input type="text" id="nombre-tarjeta" placeholder="Tu Nombre Completo" required>
                 </div>
                 <div class="form-grupo">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="tarjeta">Número de Tarjeta</label>
+                    <input type="text" id="tarjeta" placeholder="0000 0000 0000 0000" required>
                 </div>
                 <div class="form-grupo">
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+                    <label for="vencimiento">Vencimiento</label>
+                    <input type="text" id="vencimiento" placeholder="MM/AA" required>
                 </div>
-                <button type="submit" class="btn">Enviar Mensaje</button>
+                <div class="form-grupo">
+                    <label for="cvc">Código de Seguridad (CVC)</label>
+                    <input type="text" id="cvc" placeholder="123" required>
+                </div>
+                
+                <button type="submit" class="btn">Pagar</button>
             </form>
-
-            <div id="mensaje-confirmacion" style="display:none; margin-top: 40px;">
-                <h2>¡Gracias por tu mensaje!</h2>
-                <p>Lo recibimos correctamente. Te contactaremos pronto.</p>
-            </div>
         </div>
     </main>
 
@@ -70,6 +69,7 @@
             <p>&copy; 2025 Rockola Store</p>
         </div>
     </footer>
+
     <div id="carrito-panel" class="carrito-panel">
         <div class="carrito-header">
             <h2>Mi Carrito</h2>
@@ -88,5 +88,6 @@
     <div id="carrito-overlay" class="carrito-overlay"></div>
     <div id="toast-agregado" class="toast"><p></p></div>
     <script src="main.js"></script>
+
 </body>
 </html>

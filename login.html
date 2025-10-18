@@ -39,7 +39,7 @@
     <main>
         <div class="auth-layout">
             <div class="auth-imagen">
-                <img src="https://images.unsplash.com/photo-1549497538-22c1b7442136?q=80&w=1964" alt="Vinilos y música">
+                <img src="https://i.pinimg.com/736x/65/09/c5/6509c54058e4caa1da914c7e16363d8c.jpg" alt="Vinilos y música">
             </div>
 
             <div class="auth-container">
@@ -68,7 +68,23 @@
             <p>&copy; 2025 Rockola Store</p>
         </div>
     </footer>
-
-    <script src="login.js"></script>
+    <div id="carrito-panel" class="carrito-panel">
+        <div class="carrito-header">
+            <h2>Mi Carrito</h2>
+            <button id="cerrar-carrito" class="cerrar-carrito">×</button>
+        </div>
+        <div id="carrito-items" class="carrito-items"></div>
+        <div class="carrito-footer">
+            <div class="carrito-total">
+                <strong>Total:</strong>
+                <span id="carrito-total-precio">$0</span>
+            </div>
+            <a href="#" id="btn-finalizar-compra" class="btn btn-finalizar">Ir a Pagar</a>
+            <button id="btn-vaciar-carrito" class="btn btn-vaciar">Vaciar Carrito</button>
+        </div>
+    </div>
+    <div id="carrito-overlay" class="carrito-overlay"></div>
+    <div id="toast-agregado" class="toast"><p></p></div>
+    <script src="main.js"></script>
 </body>
 </html>

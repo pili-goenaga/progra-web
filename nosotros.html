@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -26,7 +25,6 @@
             </nav>
             <div class="header-acciones">
                 <a href="login.html" class="btn-cuenta" title="Mi Cuenta">😋</a>
-
                 <div class="carrito-icono">
                     <a href="#">
                         🛒
@@ -36,35 +34,46 @@
             </div>
         </div>
     </header>
+
     <main>
         
-        <div class="nosotros-imagen-divisor container">
-            <img src="URL_DE_TU_PRIMERA_FOTO_AQUI" alt="Descripción de la primera imagen" class="img-divisor">
-        </div>
-
-        <div class="container pagina-contenido">
-            <div class="nosotros-layout">
-                <div class="nosotros-texto">
-                    <h1>Más que una tienda, una selección personal.</h1>
-                    <p>
-                        Rockola nació de una idea simple: en un mundo de playlists infinitas y música descartable, el ritual de escuchar un disco sigue siendo una experiencia única. Somos coleccionistas y melómanos convencidos de que un álbum es más que un conjunto de canciones; es una obra de arte, una cápsula del tiempo y una declaración de principios.
-                    </p>
-                    <p>
-                        No buscamos tener todos los discos que existen. Buscamos tener esos discos que importan. Nuestra colección es curada a mano, pensando en la calidad del sonido, la relevancia histórica y esa magia intangible que hace que quieras poner la púa una y otra vez.
-                    </p>
-                    <p>
-                        Creemos en el sonido real, en el arte de la portada y en la comunidad que se genera alrededor de la música. Gracias por ser parte de esto.
-                    </p>
-                </div>
-                <div class="nosotros-imagen">
-                    <img src="https://via.placeholder.com/500x600.png?text=Imagen+Nosotros" alt="Una persona escuchando vinilos en un ambiente acogedor">
-                </div>
+        <section class="nosotros-hero">
+            <div class="container">
+                <h1>Más que una tienda, una selección personal.</h1>
             </div>
-        </div>
+        </section>
 
-        <div class="nosotros-imagen-divisor container">
-            <img src="URL_DE_TU_SEGUNDA_FOTO_AQUI" alt="Descripción de la segunda imagen" class="img-divisor">
-        </div>
+        <section class="nosotros-contenido">
+            <div class="container">
+                <p>
+                    Rockola nació de una idea simple: en un mundo de playlists infinitas y música descartable, el ritual de escuchar un disco sigue siendo una experiencia única. Somos coleccionistas y melómanos convencidos de que un álbum es más que un conjunto de canciones; es una obra de arte, una cápsula del tiempo y una declaración de principios.
+                </p>
+            </div>
+        </section>
+
+        <section class="nosotros-foto-media">
+            <div class="container">
+                <img src="https://via.placeholder.com/700x450.png?text=Imagen+Media" alt="Nuestra tienda">
+            </div>
+        </section>
+
+        <section class="nosotros-contenido">
+            <div class="container">
+                <p>
+                    No buscamos tener todos los discos que existen. Buscamos tener esos discos que importan. Nuestra colección es curada a mano, pensando en la calidad del sonido, la relevancia histórica y esa magia intangible que hace que quieras poner la púa una y otra vez.
+                </p>
+                <p>
+                    Creemos en el sonido real, en el arte de la portada y en la comunidad que se genera alrededor de la música. Gracias por ser parte de esto.
+                </p>
+            </div>
+        </section>
+
+        <section class="nosotros-foto-final">
+            <div class="container">
+                <img src="https://i.pinimg.com/736x/e2/0b/21/e20b215218762e6f93c62c2905379e5b.jpg" alt="Nuestra colección">
+            </div>
+        </section>
+
     </main>
 
     <footer>
@@ -72,7 +81,25 @@
             <p>&copy; 2025 Rockola Store</p>
         </div>
     </footer>
-    
+
+    <div id="carrito-panel" class="carrito-panel">
+        <div class="carrito-header">
+            <h2>Mi Carrito</h2>
+            <button id="cerrar-carrito" class="cerrar-carrito">×</button>
+        </div>
+        <div id="carrito-items" class="carrito-items"></div>
+        <div class="carrito-footer">
+            <div class="carrito-total">
+                <strong>Total:</strong>
+                <span id="carrito-total-precio">$0</span>
+            </div>
+            <a href="#" id="btn-finalizar-compra" class="btn btn-finalizar">Ir a Pagar</a>
+            <button id="btn-vaciar-carrito" class="btn btn-vaciar">Vaciar Carrito</button>
+        </div>
+    </div>
+    <div id="carrito-overlay" class="carrito-overlay"></div>
+    <div id="toast-agregado" class="toast"><p></p></div>
+    <script src="main.js"></script>
 
 </body>
 </html>
