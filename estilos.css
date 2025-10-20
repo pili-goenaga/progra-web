@@ -339,7 +339,7 @@ body.fondo-pago {
 /* --- (PEGA ESTO AL FINAL DE TU CSS) --- */
 
 /* ==========================================================================
-   9. MENÚ RESPONSIVE (HAMBURGUESA)
+   9. MENÚ RESPONSIVE (HAMBURGUESA) - VERSIÓN CORREGIDA
    ========================================================================== */
 
 /* Botones de abrir/cerrar (ocultos por defecto en desktop) */
@@ -353,7 +353,8 @@ body.fondo-pago {
     z-index: 1100; /* Se asegura que esté sobre todo */
 }
 .btn-menu-cerrar {
-    position: absolute; /* Queda arriba a la derecha del panel */
+    display: none; /* El botón de cerrar está SIEMPRE oculto, hasta que se abre el panel */
+    position: absolute; 
     top: 25px;
     right: 20px;
     color: var(--text-dark);
@@ -362,25 +363,26 @@ body.fondo-pago {
 /* --- Estilos para Móvil (pantallas de 992px o menos) --- */
 @media (max-width: 992px) {
     
-    /* 1. Mostramos el botón de abrir */
+    /* 1. (LA CLAVE) Ocultamos la navegación de escritorio (los links) */
+    header nav ul {
+        display: none; 
+    }
+
+    /* 2. Mostramos el botón de abrir (hamburguesa) */
     #btn-menu-abrir {
         display: block;
         order: 3; /* Lo mandamos al final, después de las acciones */
     }
 
-    /* 2. Hacemos que la barra de logo/iconos ocupe todo el espacio */
+    /* 3. Reordenamos los íconos del header */
     header .logo {
         flex-grow: 1; /* El logo empuja los iconos a la derecha */
-    }
-    header nav {
-        display: block;
-        order: 4; /* El nav (oculto) va al final */
     }
     .header-acciones {
         order: 2; /* Los iconos de cuenta/carrito van en el medio */
     }
 
-    /* 3. El <nav> se convierte en un panel a pantalla completa */
+    /* 4. El <nav> se convierte en un panel a pantalla completa */
     #nav-principal {
         position: fixed;
         top: 0;
@@ -399,29 +401,35 @@ body.fondo-pago {
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
+
+        /* Reseteamos los estilos de desktop que no queremos */
+        flex-grow: 0;
+        text-align: left; 
     }
 
-    /* 4. La clase que el JS va a poner para MOSTRAR el menú */
+    /* 5. La clase que el JS va a poner para MOSTRAR el menú */
     #nav-principal.nav-visible {
         opacity: 1;
         visibility: visible;
     }
 
-    /* 5. Mostramos el botón de cerrar SÓLO cuando el nav está visible */
+    /* 6. Mostramos el botón de cerrar SÓLO cuando el nav está visible */
     #nav-principal.nav-visible #btn-menu-cerrar {
         display: block;
     }
 
-    /* 6. Los links (<a>) se ven en columna */
-    #nav-principal ul {
+    /* 7. Mostramos los links (ul) SÓLO cuando el nav está visible */
+    #nav-principal.nav-visible ul {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 40px;
         padding: 0;
     }
+    
+    /* 8. Estilo de los links dentro del panel */
     #nav-principal ul a {
-        font-size: 2rem; /* Letras grandes para que sea fácil de tocar */
+        font-size: 2rem; 
         font-family: var(--font-title);
     }
 }
