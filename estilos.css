@@ -335,3 +335,93 @@ body.fondo-pago {
     background-position: center;
     background-attachment: fixed;
 }
+
+/* --- (PEGA ESTO AL FINAL DE TU CSS) --- */
+
+/* ==========================================================================
+   9. MENÚ RESPONSIVE (HAMBURGUESA)
+   ========================================================================== */
+
+/* Botones de abrir/cerrar (ocultos por defecto en desktop) */
+.btn-menu {
+    display: none; /* Oculto en compu */
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-dark);
+    z-index: 1100; /* Se asegura que esté sobre todo */
+}
+.btn-menu-cerrar {
+    position: absolute; /* Queda arriba a la derecha del panel */
+    top: 25px;
+    right: 20px;
+    color: var(--text-dark);
+}
+
+/* --- Estilos para Móvil (pantallas de 992px o menos) --- */
+@media (max-width: 992px) {
+    
+    /* 1. Mostramos el botón de abrir */
+    #btn-menu-abrir {
+        display: block;
+        order: 3; /* Lo mandamos al final, después de las acciones */
+    }
+
+    /* 2. Hacemos que la barra de logo/iconos ocupe todo el espacio */
+    header .logo {
+        flex-grow: 1; /* El logo empuja los iconos a la derecha */
+    }
+    header nav {
+        display: block;
+        order: 4; /* El nav (oculto) va al final */
+    }
+    .header-acciones {
+        order: 2; /* Los iconos de cuenta/carrito van en el medio */
+    }
+
+    /* 3. El <nav> se convierte en un panel a pantalla completa */
+    #nav-principal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-paper);
+        z-index: 1050; /* Queda por encima de todo */
+        
+        /* Centra los links vertical y horizontalmente */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* Oculto por defecto */
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    /* 4. La clase que el JS va a poner para MOSTRAR el menú */
+    #nav-principal.nav-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* 5. Mostramos el botón de cerrar SÓLO cuando el nav está visible */
+    #nav-principal.nav-visible #btn-menu-cerrar {
+        display: block;
+    }
+
+    /* 6. Los links (<a>) se ven en columna */
+    #nav-principal ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding: 0;
+    }
+    #nav-principal ul a {
+        font-size: 2rem; /* Letras grandes para que sea fácil de tocar */
+        font-family: var(--font-title);
+    }
+}

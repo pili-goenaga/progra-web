@@ -259,9 +259,31 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'index.html';
         });
     }
+    // ... (código de la sección 5) ...
+
+// ... (código de la sección 5) ...
 
     // =================================================================================
-    // 6. INICIALIZACIÓN
+    // 6. LÓGICA DEL MENÚ HAMBURGUESA
     // =================================================================================
+    const btnMenuAbrir = document.getElementById('btn-menu-abrir');
+    const btnMenuCerrar = document.getElementById('btn-menu-cerrar');
+    const navPrincipal = document.getElementById('nav-principal');
+
+    if (btnMenuAbrir && navPrincipal) {
+        btnMenuAbrir.addEventListener('click', () => {
+            navPrincipal.classList.add('nav-visible');
+        });
+    }
+    if (btnMenuCerrar && navPrincipal) {
+        btnMenuCerrar.addEventListener('click', () => {
+            navPrincipal.classList.remove('nav-visible');
+        });
+    }
+    
+// (AHORA SÍ, ACÁ ABAJO VIENE LA SECCIÓN DE INICIALIZACIÓN)
+// =================================================================================
+// 7. INICIALIZACIÓN  <-- (Si querés, cambiale el número a 7)
+// =================================================================================
     actualizarContador();
 });
