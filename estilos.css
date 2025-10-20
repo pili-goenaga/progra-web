@@ -297,3 +297,41 @@ footer {
     font-size: 0.9rem;
     background-color: var(--bg-paper);
 }
+
+/* --- NUEVA SECCIÓN DE GALERÍA (HOME) --- */
+.home-gallery {
+    padding: 80px 0; /* Espacio para que respire */
+    border-bottom: 1px solid var(--border-color);
+    background-color: #fff; /* Un fondo blanco para separarlo */
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 30px; /* Espacio entre las fotos */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; /* Evita que la imagen se deforme */
+    aspect-ratio: 4 / 3; /* Proporción (podés cambiarla) */
+    border: 1px solid var(--border-color);
+}
+
+/* Responsive para celulares */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+    .home-gallery {
+        padding: 60px 0; /* Menos padding en móvil */
+    }
+}
+body.fondo-pago {
+    background-image: url("https://i.pinimg.com/1200x/7a/64/00/7a6400435537c0f3beb1b7ea233d8f82.jpg");
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
