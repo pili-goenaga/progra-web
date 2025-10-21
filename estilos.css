@@ -375,6 +375,7 @@ body.fondo-pago {
         display: block;
         order: 3; /* Lo mandamos al final, después de las acciones */
     }
+    
     body.menu-abierto #btn-menu-abrir {
             display: none;
     }
