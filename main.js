@@ -185,8 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. LÓGICA ESPECIFA DE CADA PÁGINA
     // =================================================================================
     
-    // --- (NUEVO) LÓGICA PARA EL CARRUSEL DE LA HOME ---
-    // (Esta sección estaba en el código que me pasaste, la dejo por si la usás en index.html)
+
     const carrusel = document.querySelector('.carrusel-productos');
     if (carrusel) {
         const swiper = new Swiper('.carrusel-productos', {
@@ -216,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const productoCard = document.createElement('div');
             productoCard.classList.add('producto-card');
             
-            // (CORREGIDO: Esta es la estructura SIMPLE de 1 foto)
+
             productoCard.innerHTML = `
                 <img src="${producto.imagen}" alt="${producto.nombre}">
                 <h3>${producto.nombre}</h3>
@@ -270,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- (NUEVO) LÓGICA PARA EL FORMULARIO DE PAGO ---
+    // ---  LÓGICA PARA EL FORMULARIO DE PAGO ---
     const formPago = document.getElementById('formulario-pago');
     if (formPago) {
         formPago.addEventListener('submit', (e) => {
