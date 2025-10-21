@@ -266,21 +266,21 @@ document.addEventListener('DOMContentLoaded', () => {
 // =================================================================================
 // 6. LÓGICA DEL MENÚ HAMBURGUESA 
 // =================================================================================
+
     const btnMenuAbrir = document.getElementById('btn-menu-abrir');
     const btnMenuCerrar = document.getElementById('btn-menu-cerrar');
     const navPrincipal = document.getElementById('nav-principal');
-    const body = document.body; // <-- (Añadimos esto)
 
-    if (btnMenuAbrir && navPrincipal && body) {
+    if (btnMenuAbrir && navPrincipal) {
         btnMenuAbrir.addEventListener('click', () => {
             navPrincipal.classList.add('nav-visible');
-            body.classList.add('menu-abierto'); // <-- (Añadimos esto)
+            btnMenuAbrir.classList.add('oculto'); // <-- (1) Oculta las 3 rayitas
         });
     }
-    if (btnMenuCerrar && navPrincipal && body) {
+    if (btnMenuCerrar && navPrincipal) {
         btnMenuCerrar.addEventListener('click', () => {
             navPrincipal.classList.remove('nav-visible');
-            body.classList.remove('menu-abierto'); // <-- (Añadimos esto)
+            btnMenuAbrir.classList.remove('oculto'); // <-- (2) Muestra las 3 rayitas de nuevo
         });
     }
 // (AHORA SÍ, ACÁ ABAJO VIENE LA SECCIÓN DE INICIALIZACIÓN)

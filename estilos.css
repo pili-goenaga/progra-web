@@ -376,9 +376,9 @@ body.fondo-pago {
         order: 3; /* Lo mandamos al final, después de las acciones */
     }
     
-    body.menu-abierto #btn-menu-abrir {
+    #btn-menu-abrir.oculto {
             display: none;
-    }
+        }
     /* 3. Reordenamos los íconos del header */
     header .logo {
         flex-grow: 1; /* El logo empuja los iconos a la derecha */
