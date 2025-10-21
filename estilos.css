@@ -173,7 +173,7 @@ header nav a:hover {
 .toast.visible { opacity: 1; transform: translateY(0); visibility: visible; }
 
 /* ==========================================================================
-   4. ESTILOS DE PRODUCTOS (CARD, GRID, HOVER)
+   4. ESTILOS DE PRODUCTOS (CARD, GRID)
    ========================================================================== */
 .productos-grid { 
     display: grid; 
@@ -184,33 +184,15 @@ header nav a:hover {
     text-align: center; 
 }
 
-/* --- EFECTO HOVER DE 2 IMÁGENES --- */
-.producto-imagen-container {
-    position: relative;
-    width: 100%;
+/* --- (CORREGIDO) ESTILO SIMPLE DE 1 IMAGEN --- */
+.producto-card img {
+    max-width: 100%;
+    height: auto;
     aspect-ratio: 1 / 1;
-    margin-bottom: 15px;
-    overflow: hidden;
-}
-.producto-imagen-container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     object-fit: cover;
-    transition: opacity 0.3s ease-in-out;
+    margin-bottom: 15px;
 }
-.producto-imagen-container .img-hover {
-    opacity: 0;
-}
-.producto-imagen-container:hover .img-hover {
-    opacity: 1;
-}
-.producto-imagen-container:hover .img-default {
-    opacity: 0;
-}
-/* --- FIN EFECTO HOVER --- */
+/* --- FIN ESTILO DE IMAGEN --- */
 
 .producto-card h3 { 
     font-family: var(--font-title); 
@@ -248,7 +230,7 @@ header nav a:hover {
     text-align: center;
     padding: 80px 0;
     border-bottom: 1px solid var(--border-color);
-    background-color: #fff; /* Fondo blanco limpio */
+    background-color: #fff;
 }
 .hero-simple h1 {
     font-family: var(--font-title);
@@ -278,14 +260,14 @@ header nav a:hover {
 /* --- ESTILOS PARA EL CARRUSEL (SWIPER) --- */
 .carrusel-productos {
     width: 100%;
-    padding: 20px 0 50px 0 !important; /* Espacio para la paginación */
+    padding: 20px 0 50px 0 !important;
 }
 .carrusel-productos .swiper-slide {
     display: flex;
     justify-content: center;
 }
 .carrusel-productos .producto-card {
-    width: 300px; /* Ancho fijo para cada producto en el carrusel */
+    width: 300px;
 }
 .swiper-pagination-bullet {
     background-color: var(--accent-color) !important;
@@ -304,7 +286,7 @@ header nav a:hover {
 }
 .gallery-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
 }
 .gallery-item img {
@@ -316,7 +298,7 @@ header nav a:hover {
 }
 @media (max-width: 768px) {
     .gallery-grid {
-        grid-template-columns: 1fr; /* Una columna en móvil */
+        grid-template-columns: 1fr;
     }
     .home-gallery {
         padding: 60px 0;
@@ -427,8 +409,6 @@ header nav a:hover {
 /* ==========================================================================
    7. PÁGINAS DE CONTENIDO (CONTACTO, NOSOTROS, PAGO)
    ========================================================================== */
-
-/* --- PÁGINA DE CONTACTO (Y PAGO) --- */
 .pagina-contenido {
     padding: 50px; 
     max-width: 700px; 
@@ -494,7 +474,6 @@ body.fondo-pago {
     background-attachment: fixed;
 }
 
-
 /* --- PÁGINA "NOSOTROS" (ESTILO EDITORIAL) --- */
 .nosotros-hero {
     padding: 80px 0;
@@ -512,10 +491,10 @@ body.fondo-pago {
 }
 .nosotros-contenido {
     padding-top: 80px;
-    padding-bottom: 80px; /* Ajustado para que sea consistente */
+    padding-bottom: 80px;
 }
 .nosotros-contenido .container {
-    max-width: 700px; /* Ancho de lectura ideal */
+    max-width: 700px;
 }
 .nosotros-contenido p {
     font-size: 1.2rem;
@@ -527,7 +506,7 @@ body.fondo-pago {
     padding-bottom: 80px;
 }
 .nosotros-foto-media .container {
-    max-width: 700px; /* Mismo ancho que el texto para alinear */
+    max-width: 700px;
 }
 .nosotros-foto-media img {
     width: 100%;
@@ -539,7 +518,7 @@ body.fondo-pago {
     padding-bottom: 80px;
 }
 .nosotros-foto-final .container {
-    max-width: 900px; /* Un poco más ancha para impacto */
+    max-width: 900px;
 }
 .nosotros-foto-final img {
     width: 100%;

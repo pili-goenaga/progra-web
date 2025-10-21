@@ -1,11 +1,10 @@
-// js/main.js - El único archivo JS que necesitas (VERSIÓN FINAL)
+// js/main.js - El único archivo JS que necesitas (VERSIÓN FINAL SIN HOVER)
 
 document.addEventListener('DOMContentLoaded', () => {
     // =================================================================================
     // 1. BASE DE DATOS Y ESTADO GLOBAL DEL CARRITO
     // =================================================================================
     const baseDeDatos = [
-        // (Ya no necesitamos 'imagen_hover')
         { id: 1, nombre: 'Skinty Fia', artista: 'Fontaines D.C.', precio: 3500, imagen: 'https://fontainesdc.com/cdn/shop/products/SKINTY-LP.png?v=1657616070' },
         { id: 2, nombre: 'Born to Die: The Paradise Edition', artista: 'Lana Del Rey', precio: 4000, imagen: 'https://recordstore.co.uk/cdn/shop/files/B2D_-_Vinyl_1.png?v=1743016688' },
         { id: 3, nombre: 'Rumours', artista: 'Fleetwood Mac', precio: 3200, imagen: 'https://shop.rocksound.tv/cdn/shop/files/FM1.png?v=1743515156' },
@@ -51,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${producto.imagen}" alt="${producto.nombre}">
                     <div class="carrito-item-info">
                         <h4>${producto.nombre}</h4>
-                        <p>Precio: $${producto.precio}</p>
+                        <p>${producto.artista}</p> <p>Precio: $${producto.precio}</p>
                         <div class="carrito-item-cantidad">
                             <button class="btn-cantidad" data-id="${producto.id}" data-action="disminuir">-</button>
                             <span>${producto.cantidad}</span>
@@ -185,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. LÓGICA ESPECIFA DE CADA PÁGINA
     // =================================================================================
     
-
+    // --- LÓGICA PARA EL CARRUSEL DE LA HOME ---
     const carrusel = document.querySelector('.carrusel-productos');
     if (carrusel) {
         const swiper = new Swiper('.carrusel-productos', {
@@ -215,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const productoCard = document.createElement('div');
             productoCard.classList.add('producto-card');
             
-
+            // (CORREGIDO: Esta es la estructura SIMPLE de 1 foto)
             productoCard.innerHTML = `
                 <img src="${producto.imagen}" alt="${producto.nombre}">
                 <h3>${producto.nombre}</h3>
@@ -269,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ---  LÓGICA PARA EL FORMULARIO DE PAGO ---
+    // --- LÓGICA PARA EL FORMULARIO DE PAGO ---
     const formPago = document.getElementById('formulario-pago');
     if (formPago) {
         formPago.addEventListener('submit', (e) => {
@@ -290,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnMenuAbrir && navPrincipal) {
         btnMenuAbrir.addEventListener('click', () => {
             navPrincipal.classList.add('nav-visible');
-            btnMenuAbrir.classList.add('oculto');
+            btnMenuAbrir.classList.add('oculto'); 
         });
     }
     if (btnMenuCerrar && navPrincipal) {
