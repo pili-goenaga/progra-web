@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. BASE DE DATOS Y ESTADO GLOBAL DEL CARRITO
     // =================================================================================
     const baseDeDatos = [
+        // (Ya no necesitamos 'imagen_hover')
         { id: 1, nombre: 'Skinty Fia', artista: 'Fontaines D.C.', precio: 3500, imagen: 'https://fontainesdc.com/cdn/shop/products/SKINTY-LP.png?v=1657616070' },
         { id: 2, nombre: 'Born to Die: The Paradise Edition', artista: 'Lana Del Rey', precio: 4000, imagen: 'https://recordstore.co.uk/cdn/shop/files/B2D_-_Vinyl_1.png?v=1743016688' },
         { id: 3, nombre: 'Rumours', artista: 'Fleetwood Mac', precio: 3200, imagen: 'https://shop.rocksound.tv/cdn/shop/files/FM1.png?v=1743515156' },
@@ -103,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function vaciarCarrito() {
         carrito = [];
-        // Actualiza el carrito en el JS, en el LocalStorage y en el HTML
         guardarCarritoEnStorage();
         renderizarCarrito();
     }
@@ -184,6 +184,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // =================================================================================
     // 5. LÓGICA ESPECIFA DE CADA PÁGINA
     // =================================================================================
+    
+    // --- (NUEVO) LÓGICA PARA EL CARRUSEL DE LA HOME ---
+    // (Esta sección estaba en el código que me pasaste, la dejo por si la usás en index.html)
+    const carrusel = document.querySelector('.carrusel-productos');
+    if (carrusel) {
+        const swiper = new Swiper('.carrusel-productos', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+            },
+        });
+    }
 
     // Dibuja los productos en la página "productos.html"
     const contenedorProductos = document.getElementById('productos-contenedor');
@@ -191,9 +215,12 @@ document.addEventListener('DOMContentLoaded', () => {
         baseDeDatos.forEach((producto) => {
             const productoCard = document.createElement('div');
             productoCard.classList.add('producto-card');
+            
+            // (CORREGIDO: Esta es la estructura SIMPLE de 1 foto)
             productoCard.innerHTML = `
                 <img src="${producto.imagen}" alt="${producto.nombre}">
                 <h3>${producto.nombre}</h3>
+                <p>${producto.artista}</p>
                 <span>$${producto.precio}</span>
                 <button class="btn-comprar" data-id="${producto.id}">Agregar al Carrito</button>
             `;
@@ -248,25 +275,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (formPago) {
         formPago.addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            // Simulación de "procesando pago"
             alert('¡Pago procesado con éxito! Gracias por tu compra.');
-            
-            // Vacíamos el carrito
             vaciarCarrito();
-            
-            // Redirigimos al inicio
             window.location.href = 'index.html';
         });
     }
-    // ... (código de la sección 5) ...
 
-// ... (código de la sección 5) ...
-
-// =================================================================================
-// 6. LÓGICA DEL MENÚ HAMBURGUESA 
-// =================================================================================
-
+    // =================================================================================
+    // 6. LÓGICA DEL MENÚ HAMBURGUESA 
+    // =================================================================================
     const btnMenuAbrir = document.getElementById('btn-menu-abrir');
     const btnMenuCerrar = document.getElementById('btn-menu-cerrar');
     const navPrincipal = document.getElementById('nav-principal');
@@ -274,18 +291,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnMenuAbrir && navPrincipal) {
         btnMenuAbrir.addEventListener('click', () => {
             navPrincipal.classList.add('nav-visible');
-            btnMenuAbrir.classList.add('oculto'); // <-- (1) Oculta las 3 rayitas
+            btnMenuAbrir.classList.add('oculto');
         });
     }
     if (btnMenuCerrar && navPrincipal) {
         btnMenuCerrar.addEventListener('click', () => {
             navPrincipal.classList.remove('nav-visible');
-            btnMenuAbrir.classList.remove('oculto'); // <-- (2) Muestra las 3 rayitas de nuevo
+            btnMenuAbrir.classList.remove('oculto');
         });
     }
-// (AHORA SÍ, ACÁ ABAJO VIENE LA SECCIÓN DE INICIALIZACIÓN)
-// =================================================================================
-// 7. INICIALIZACIÓN  <-- (Si querés, cambiale el número a 7)
-// =================================================================================
+
+    // =================================================================================
+    // 7. INICIALIZACIÓN
+    // =================================================================================
     actualizarContador();
 });

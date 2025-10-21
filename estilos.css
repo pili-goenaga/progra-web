@@ -1,4 +1,6 @@
-/* --- VARIABLES: ESTÉTICA FINAL --- */
+/* ==========================================================================
+   1. VARIABLES Y ESTILOS GLOBALES
+   ========================================================================== */
 :root {
     --bg-paper: #f9f6f1;
     --text-dark: #2c2c2c;
@@ -8,7 +10,6 @@
     --font-body: 'Roboto', sans-serif;
 }
 
-/* --- ESTILOS GLOBALES --- */
 body {
     background-color: var(--bg-paper);
     color: var(--text-dark);
@@ -39,7 +40,9 @@ body {
     color: var(--text-dark);
 }
 
-/* --- HEADER --- */
+/* ==========================================================================
+   2. HEADER Y NAVEGACIÓN
+   ========================================================================== */
 header {
     padding: 25px 0;
     border-bottom: 1px solid var(--border-color);
@@ -94,7 +97,9 @@ header nav a:hover {
     transform: scale(1.1);
 }
 
-/* --- CARRITO --- */
+/* ==========================================================================
+   3. CARRITO (ÍCONO, PANEL Y TOAST)
+   ========================================================================== */
 .carrito-icono a {
     position: relative;
     font-size: 1.5rem;
@@ -148,7 +153,7 @@ header nav a:hover {
 .carrito-total { display: flex; justify-content: space-between; font-size: 1.2rem; margin-bottom: 20px; }
 .btn-finalizar, .btn-vaciar { width: 100%; text-align: center; box-sizing: border-box; }
 .btn-finalizar {
-    display: block; /* Para que funcione como un botón */
+    display: block;
     margin-bottom: 10px;
 }
 .btn-vaciar { 
@@ -167,70 +172,330 @@ header nav a:hover {
 }
 .toast.visible { opacity: 1; transform: translateY(0); visibility: visible; }
 
-/* --- PRODUCTOS Y DESTACADOS --- */
-.hero { text-align: center; padding: 80px 0; border-bottom: 1px solid var(--border-color); }
-.hero h1 { font-family: var(--font-title); font-size: 3.5rem; font-weight: 500; max-width: 800px; margin: 0 auto 20px; text-transform: uppercase; }
-.hero p { font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; opacity: 0.8; }
-.destacados { padding: 80px 0; }
-.destacados h2 { font-family: var(--font-title); font-weight: 500; font-size: 2.5rem; text-align: center; margin-bottom: 50px; text-transform: uppercase; }
-.productos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.producto-card { text-align: center; }
-.producto-card img { max-width: 100%; height: auto; aspect-ratio: 1 / 1; margin-bottom: 15px; }
-.producto-card h3 { font-family: var(--font-title); font-weight: 500; font-size: 1.5rem; margin: 0; }
-.producto-card p { font-size: 1rem; margin: 5px 0 10px; opacity: 0.7; }
-.producto-card span { display: block; font-size: 1.2rem; font-weight: 700; }
-.btn-comprar { width: 100%; padding: 12px; margin-top: 15px; background-color: transparent; color: var(--text-dark); border: 1px solid var(--text-dark); font-family: var(--font-body); font-weight: 700; cursor: pointer; text-transform: uppercase; transition: all 0.3s ease; }
-.btn-comprar:hover { background-color: var(--text-dark); color: var(--bg-paper); }
-.pagina-productos h1 { font-family: var(--font-title); font-size: 3rem; font-weight: 500; text-align: center; margin-bottom: 50px; text-transform: uppercase; }
+/* ==========================================================================
+   4. ESTILOS DE PRODUCTOS (CARD, GRID, HOVER)
+   ========================================================================== */
+.productos-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; 
+}
+.producto-card { 
+    text-align: center; 
+}
 
+/* --- EFECTO HOVER DE 2 IMÁGENES --- */
+.producto-imagen-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+.producto-imagen-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+}
+.producto-imagen-container .img-hover {
+    opacity: 0;
+}
+.producto-imagen-container:hover .img-hover {
+    opacity: 1;
+}
+.producto-imagen-container:hover .img-default {
+    opacity: 0;
+}
+/* --- FIN EFECTO HOVER --- */
 
-/* --- LOGIN Y REGISTRO CON FOTO --- */
-.auth-layout { display: grid; grid-template-columns: 1fr; }
-.auth-imagen { display: none; }
-.auth-imagen img { width: 100%; height: 100%; object-fit: cover; }
-.auth-container { padding: 60px 30px; display: flex; flex-direction: column; justify-content: center; }
-.auth-container h1 { font-family: var(--font-title); font-size: 2.5rem; font-weight: 500; margin-bottom: 15px; text-transform: uppercase; text-align: center; }
-.auth-container p { font-size: 1.1rem; margin-bottom: 40px; opacity: 0.8; text-align: center; }
-.auth-container .formulario { text-align: left; }
-.auth-container .form-grupo { margin-bottom: 20px; }
-.auth-container .form-grupo label { display: block; margin-bottom: 8px; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
-.auth-container .form-grupo input { width: 100%; padding: 15px; border: 1px solid var(--border-color); background-color: #fff; color: var(--text-dark); font-family: var(--font-body); font-size: 1rem; box-sizing: border-box; transition: border-color 0.3s ease; }
-.auth-container .form-grupo input:focus { outline: none; border-color: var(--text-dark); }
-.auth-container .form-link { text-align: center; margin-top: 30px; font-size: 0.9rem; }
-.auth-container .form-link a { color: var(--text-dark); font-weight: 700; text-decoration: underline; }
+.producto-card h3 { 
+    font-family: var(--font-title); 
+    font-weight: 500; 
+    font-size: 1.5rem; 
+    margin: 0; 
+}
+.producto-card p { 
+    font-size: 1rem; 
+    margin: 5px 0 10px; 
+    opacity: 0.7; 
+}
+.producto-card span { 
+    display: block; 
+    font-size: 1.2rem; 
+    font-weight: 700; 
+}
+.btn-comprar { 
+    width: 100%; padding: 12px; margin-top: 15px; background-color: transparent; 
+    color: var(--text-dark); border: 1px solid var(--text-dark); 
+    font-family: var(--font-body); font-weight: 700; cursor: pointer; 
+    text-transform: uppercase; transition: all 0.3s ease; 
+}
+.btn-comprar:hover { 
+    background-color: var(--text-dark); 
+    color: var(--bg-paper); 
+}
+
+/* ==========================================================================
+   5. PÁGINAS PRINCIPALES (HOME, PRODUCTOS)
+   ========================================================================== */
+
+/* --- PÁGINA DE INICIO (HOME) --- */
+.hero-simple {
+    text-align: center;
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #fff; /* Fondo blanco limpio */
+}
+.hero-simple h1 {
+    font-family: var(--font-title);
+    font-size: 3.5rem;
+    font-weight: 500;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    text-transform: uppercase;
+}
+.hero-simple p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    opacity: 0.8;
+}
+.destacados {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.destacados h2 { 
+    font-family: var(--font-title); 
+    font-weight: 500; font-size: 2.5rem; 
+    text-align: center; margin-bottom: 50px; 
+    text-transform: uppercase; 
+}
+
+/* --- ESTILOS PARA EL CARRUSEL (SWIPER) --- */
+.carrusel-productos {
+    width: 100%;
+    padding: 20px 0 50px 0 !important; /* Espacio para la paginación */
+}
+.carrusel-productos .swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+.carrusel-productos .producto-card {
+    width: 300px; /* Ancho fijo para cada producto en el carrusel */
+}
+.swiper-pagination-bullet {
+    background-color: var(--accent-color) !important;
+    opacity: 0.5;
+}
+.swiper-pagination-bullet-active {
+    background-color: var(--text-dark) !important;
+    opacity: 1;
+}
+
+/* --- GALERÍA (HOME) --- */
+.home-gallery {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #fff;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    gap: 30px;
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+    border: 1px solid var(--border-color);
+}
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+    .home-gallery {
+        padding: 60px 0;
+    }
+}
+
+/* --- PÁGINA DE PRODUCTOS --- */
+.pagina-productos h1 { 
+    font-family: var(--font-title); 
+    font-size: 3rem; 
+    font-weight: 500; 
+    text-align: center; 
+    margin-bottom: 50px; 
+    text-transform: uppercase; 
+}
+
+/* ==========================================================================
+   6. PÁGINAS DE AUTENTICACIÓN (LOGIN, REGISTRO)
+   ========================================================================== */
+.auth-layout { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+}
+.auth-imagen { 
+    display: none; 
+}
+.auth-imagen img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+.auth-container { 
+    padding: 60px 30px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+.auth-container h1 { 
+    font-family: var(--font-title); 
+    font-size: 2.5rem; 
+    font-weight: 500; 
+    margin-bottom: 15px; 
+    text-transform: uppercase; 
+    text-align: center; 
+}
+.auth-container p { 
+    font-size: 1.1rem; 
+    margin-bottom: 40px; 
+    opacity: 0.8; 
+    text-align: center; 
+}
+.auth-container .formulario { 
+    text-align: left; 
+}
+.auth-container .form-grupo { 
+    margin-bottom: 20px; 
+}
+.auth-container .form-grupo label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-weight: 700; 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+}
+.auth-container .form-grupo input { 
+    width: 100%; 
+    padding: 15px; 
+    border: 1px solid var(--border-color); 
+    background-color: #fff; 
+    color: var(--text-dark); 
+    font-family: var(--font-body); 
+    font-size: 1rem; 
+    box-sizing: border-box; 
+    transition: border-color 0.3s ease; 
+}
+.auth-container .form-grupo input:focus { 
+    outline: none; 
+    border-color: var(--text-dark); 
+}
+.auth-container .form-link { 
+    text-align: center; 
+    margin-top: 30px; 
+    font-size: 0.9rem; 
+}
+.auth-container .form-link a { 
+    color: var(--text-dark); 
+    font-weight: 700; 
+    text-decoration: underline; 
+}
 
 @media (min-width: 992px) {
-    .auth-layout { grid-template-columns: 1fr 1fr; min-height: calc(100vh - 100px); }
-    .auth-imagen { display: block; }
-    .auth-container { padding: 60px; }
-    .auth-container h1, .auth-container p { text-align: left; }
+    .auth-layout { 
+        grid-template-columns: 1fr 1fr; 
+        min-height: calc(100vh - 100px); 
+    }
+    .auth-imagen { 
+        display: block; 
+    }
+    .auth-container { 
+        padding: 60px; 
+    }
+    .auth-container h1, .auth-container p { 
+        text-align: left; 
+    }
 }
 
-/* --- PÁGINA DE CONTACTO --- */
-body.fondo-contacto {
-    background-image: url('https://i.pinimg.com/736x/b6/8f/11/b68f115da67573d1f520db5813bc3bd5.jpg');
-    background-size: cover; background-position: center; background-attachment: fixed;
-}
+/* ==========================================================================
+   7. PÁGINAS DE CONTENIDO (CONTACTO, NOSOTROS, PAGO)
+   ========================================================================== */
+
+/* --- PÁGINA DE CONTACTO (Y PAGO) --- */
 .pagina-contenido {
-    padding: 50px; max-width: 700px; margin: 80px auto;
-    background-color: var(--bg-paper); border: 1px solid var(--border-color);
+    padding: 50px; 
+    max-width: 700px; 
+    margin: 80px auto;
+    background-color: var(--bg-paper); 
+    border: 1px solid var(--border-color);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
-.pagina-contenido h1 { font-family: var(--font-title); font-size: 3.5rem; font-weight: 500; text-align: left; margin-bottom: 20px; text-transform: uppercase; }
-.pagina-contenido p { font-size: 1.1rem; margin-bottom: 40px; opacity: 0.8; }
-.formulario { text-align: left; }
-.form-grupo { margin-bottom: 25px; }
-.form-grupo label { display: block; margin-bottom: 8px; font-weight: 700; font-size: 1rem; text-transform: uppercase; }
-.form-grupo input, .form-grupo textarea { width: 100%; padding: 15px; border: 1px solid var(--border-color); background-color: #fff; color: var(--text-dark); font-family: var(--font-body); font-size: 1rem; box-sizing: border-box; }
-.form-grupo input:focus, .form-grupo textarea:focus { outline: none; border-color: var(--text-dark); }
+.pagina-contenido h1 { 
+    font-family: var(--font-title); 
+    font-size: 3.5rem; 
+    font-weight: 500; 
+    text-align: left; 
+    margin-bottom: 20px; 
+    text-transform: uppercase; 
+}
+.pagina-contenido p { 
+    font-size: 1.1rem; 
+    margin-bottom: 40px; 
+    opacity: 0.8; 
+}
+.formulario { 
+    text-align: left; 
+}
+.form-grupo { 
+    margin-bottom: 25px; 
+}
+.form-grupo label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-weight: 700; 
+    font-size: 1rem; 
+    text-transform: uppercase; 
+}
+.form-grupo input, .form-grupo textarea { 
+    width: 100%; 
+    padding: 15px; 
+    border: 1px solid var(--border-color); 
+    background-color: #fff; 
+    color: var(--text-dark); 
+    font-family: var(--font-body); 
+    font-size: 1rem; 
+    box-sizing: border-box; 
+}
+.form-grupo input:focus, .form-grupo textarea:focus { 
+    outline: none; 
+    border-color: var(--text-dark); 
+}
 
-/* --- PÁGINA NOSOTROS --- */
+/* --- FONDO PARA PÁGINA DE CONTACTO --- */
+body.fondo-contacto {
+    background-image: url('https://i.pinimg.com/736x/b6/8f/11/b68f115da67573d1f520db5813bc3bd5.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed;
+}
 
-/* --- (PEGA ESTO AL FINAL DE TU CSS) --- */
+/* --- FONDO PARA PÁGINA DE PAGO --- */
+body.fondo-pago {
+    background-image: url("https://i.pinimg.com/1200x/7a/64/00/7a6400435537c0f3beb1b7ea233d8f82.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 
-/* --- CUARTO DISEÑO PÁGINA "NOSOTROS" (ESTILO EDITORIAL) --- */
 
-/* 1. El banner (sigue igual) */
+/* --- PÁGINA "NOSOTROS" (ESTILO EDITORIAL) --- */
 .nosotros-hero {
     padding: 80px 0;
     text-align: center;
@@ -245,10 +510,9 @@ body.fondo-contacto {
     margin: 0 auto;
     text-transform: uppercase;
 }
-
-/* 2. El contenedor del texto (para intro y cierre) */
 .nosotros-contenido {
-    padding: 80px 0;
+    padding-top: 80px;
+    padding-bottom: 80px; /* Ajustado para que sea consistente */
 }
 .nosotros-contenido .container {
     max-width: 700px; /* Ancho de lectura ideal */
@@ -257,10 +521,8 @@ body.fondo-contacto {
     font-size: 1.2rem;
     line-height: 1.7;
     margin-bottom: 20px;
-    text-align: left; /* NO justificar. Es más limpio. */
+    text-align: left; 
 }
-
-/* 3. La imagen media (la que antes flotaba) */
 .nosotros-foto-media {
     padding-bottom: 80px;
 }
@@ -273,8 +535,6 @@ body.fondo-contacto {
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
-
-/* 4. La foto final (sigue igual) */
 .nosotros-foto-final {
     padding-bottom: 80px;
 }
@@ -288,7 +548,9 @@ body.fondo-contacto {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* --- FOOTER --- */
+/* ==========================================================================
+   8. FOOTER
+   ========================================================================== */
 footer {
     text-align: center;
     padding: 40px 0;
@@ -298,96 +560,48 @@ footer {
     background-color: var(--bg-paper);
 }
 
-/* --- NUEVA SECCIÓN DE GALERÍA (HOME) --- */
-.home-gallery {
-    padding: 80px 0; /* Espacio para que respire */
-    border-bottom: 1px solid var(--border-color);
-    background-color: #fff; /* Un fondo blanco para separarlo */
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
-    gap: 30px; /* Espacio entre las fotos */
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%; 
-    object-fit: cover; /* Evita que la imagen se deforme */
-    aspect-ratio: 4 / 3; /* Proporción (podés cambiarla) */
-    border: 1px solid var(--border-color);
-}
-
-/* Responsive para celulares */
-@media (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: 1fr; /* Una columna en móvil */
-    }
-    .home-gallery {
-        padding: 60px 0; /* Menos padding en móvil */
-    }
-}
-body.fondo-pago {
-    background-image: url("https://i.pinimg.com/1200x/7a/64/00/7a6400435537c0f3beb1b7ea233d8f82.jpg");
-    
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-
-
-/* --- (PEGA ESTO AL FINAL DE TU CSS) --- */
-
 /* ==========================================================================
-   9. MENÚ RESPONSIVE (HAMBURGUESA) - VERSIÓN CORREGIDA
+   9. MENÚ RESPONSIVE (HAMBURGUESA)
    ========================================================================== */
-
-/* Botones de abrir/cerrar (ocultos por defecto en desktop) */
 .btn-menu {
-    display: none; /* Oculto en compu */
+    display: none;
     font-size: 2rem;
     background: none;
     border: none;
     cursor: pointer;
     color: var(--text-dark);
-    z-index: 1100; /* Se asegura que esté sobre todo */
+    z-index: 1100;
 }
 .btn-menu-cerrar {
-    display: none; /* El botón de cerrar está SIEMPRE oculto, hasta que se abre el panel */
+    display: none;
     position: absolute; 
     top: 25px;
     right: 20px;
     color: var(--text-dark);
 }
 
-/* --- Estilos para Móvil (pantallas de 992px o menos) --- */
 @media (max-width: 992px) {
     
-    /* 1. (LA CLAVE) Ocultamos la navegación de escritorio (los links) */
     header nav ul {
         display: none; 
     }
 
-    /* 2. Mostramos el botón de abrir (hamburguesa) */
     #btn-menu-abrir {
         display: block;
-        order: 3; /* Lo mandamos al final, después de las acciones */
+        order: 3;
     }
     
     #btn-menu-abrir.oculto {
-            display: none;
-        }
-    /* 3. Reordenamos los íconos del header */
-    header .logo {
-        flex-grow: 1; /* El logo empuja los iconos a la derecha */
-    }
-    .header-acciones {
-        order: 2; /* Los iconos de cuenta/carrito van en el medio */
+        display: none;
     }
 
-    /* 4. El <nav> se convierte en un panel a pantalla completa */
+    header .logo {
+        flex-grow: 1;
+    }
+    .header-acciones {
+        order: 2;
+    }
+
     #nav-principal {
         position: fixed;
         top: 0;
@@ -395,35 +609,29 @@ body.fondo-pago {
         width: 100%;
         height: 100%;
         background-color: var(--bg-paper);
-        z-index: 1050; /* Queda por encima de todo */
+        z-index: 1050;
         
-        /* Centra los links vertical y horizontalmente */
         display: flex;
         justify-content: center;
         align-items: center;
 
-        /* Oculto por defecto */
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
 
-        /* Reseteamos los estilos de desktop que no queremos */
         flex-grow: 0;
         text-align: left; 
     }
 
-    /* 5. La clase que el JS va a poner para MOSTRAR el menú */
     #nav-principal.nav-visible {
         opacity: 1;
         visibility: visible;
     }
 
-    /* 6. Mostramos el botón de cerrar SÓLO cuando el nav está visible */
     #nav-principal.nav-visible #btn-menu-cerrar {
         display: block;
     }
 
-    /* 7. Mostramos los links (ul) SÓLO cuando el nav está visible */
     #nav-principal.nav-visible ul {
         display: flex;
         flex-direction: column;
@@ -432,7 +640,6 @@ body.fondo-pago {
         padding: 0;
     }
     
-    /* 8. Estilo de los links dentro del panel */
     #nav-principal ul a {
         font-size: 2rem; 
         font-family: var(--font-title);
