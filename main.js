@@ -1,4 +1,4 @@
-// js/main.js - El único archivo JS que necesitas (VERSIÓN FINAL SIN HOVER)
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // =================================================================================
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
     // =================================================================================
-    // 2. ELEMENTOS DEL DOM GLOBALES (Existen en todas las páginas)
+    // 2. ELEMENTOS DEL DOM GLOBALES 
     // =================================================================================
     const contadorCarrito = document.getElementById('carrito-contador');
     const panelCarrito = document.getElementById('carrito-panel');
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const botonFinalizar = document.getElementById('btn-finalizar-compra');
 
     // =================================================================================
-    // 3. LÓGICA DEL CARRITO (Funciones globales para todas las páginas)
+    // 3. LÓGICA DEL CARRITO 
     // =================================================================================
     
     function renderizarCarrito() {
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =================================================================================
-    // 4. EVENT LISTENERS (Los "oídos" del sitio)
+    // 4. EVENT LISTENERS 
     // =================================================================================
     
     if (iconoCarrito) {
@@ -207,14 +207,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Dibuja los productos en la página "productos.html"
+ 
     const contenedorProductos = document.getElementById('productos-contenedor');
     if (contenedorProductos) {
         baseDeDatos.forEach((producto) => {
             const productoCard = document.createElement('div');
             productoCard.classList.add('producto-card');
             
-            // (CORREGIDO: Esta es la estructura SIMPLE de 1 foto)
+
             productoCard.innerHTML = `
                 <img src="${producto.imagen}" alt="${producto.nombre}">
                 <h3>${producto.nombre}</h3>
@@ -226,7 +226,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // "Oído" para TODOS los botones "Agregar al Carrito" (Delegación)
     document.addEventListener('click', function (evento) {
         if (evento.target.classList.contains('btn-comprar')) {
             const idProducto = parseInt(evento.target.dataset.id);
@@ -234,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Lógica para el formulario de LOGIN
+
     const formLogin = document.getElementById('formulario-login');
     if (formLogin) {
         formLogin.addEventListener('submit', (e) => {
