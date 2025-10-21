@@ -336,9 +336,7 @@ body.fondo-pago {
     background-attachment: fixed;
 }
 
-body.menu-abierto #btn-menu-abrir {
-        display: none;
-    }
+
 
 /* --- (PEGA ESTO AL FINAL DE TU CSS) --- */
 
@@ -377,7 +375,9 @@ body.menu-abierto #btn-menu-abrir {
         display: block;
         order: 3; /* Lo mandamos al final, después de las acciones */
     }
-
+    body.menu-abierto #btn-menu-abrir {
+            display: none;
+    }
     /* 3. Reordenamos los íconos del header */
     header .logo {
         flex-grow: 1; /* El logo empuja los iconos a la derecha */
