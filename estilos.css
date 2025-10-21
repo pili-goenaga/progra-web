@@ -336,6 +336,10 @@ body.fondo-pago {
     background-attachment: fixed;
 }
 
+body.menu-abierto #btn-menu-abrir {
+        display: none;
+    }
+
 /* --- (PEGA ESTO AL FINAL DE TU CSS) --- */
 
 /* ==========================================================================
