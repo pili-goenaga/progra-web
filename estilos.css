@@ -173,7 +173,7 @@ header nav a:hover {
 .toast.visible { opacity: 1; transform: translateY(0); visibility: visible; }
 
 /* ==========================================================================
-   4. ESTILOS DE PRODUCTOS (CARD, GRID)
+   4. ESTILOS DE PRODUCTOS 
    ========================================================================== */
 .productos-grid { 
     display: grid; 
@@ -222,10 +222,10 @@ header nav a:hover {
 }
 
 /* ==========================================================================
-   5. PÁGINAS PRINCIPALES (HOME, PRODUCTOS)
+   5. PÁGINAS PRINCIPALES 
    ========================================================================== */
 
-/* --- PÁGINA DE INICIO (HOME) --- */
+/* --- PÁGINA DE INICIO  --- */
 .hero-simple {
     text-align: center;
     padding: 80px 0;
@@ -257,7 +257,7 @@ header nav a:hover {
     text-transform: uppercase; 
 }
 
-/* --- ESTILOS PARA EL CARRUSEL (SWIPER) --- */
+/* --- ESTILOS PARA EL CARRUSEL  --- */
 .carrusel-productos {
     width: 100%;
     padding: 20px 0 50px 0 !important;
@@ -278,7 +278,7 @@ header nav a:hover {
     opacity: 1;
 }
 
-/* --- GALERÍA (HOME) --- */
+/* --- GALERÍA  --- */
 .home-gallery {
     padding: 80px 0;
     border-bottom: 1px solid var(--border-color);
@@ -316,7 +316,7 @@ header nav a:hover {
 }
 
 /* ==========================================================================
-   6. PÁGINAS DE AUTENTICACIÓN (LOGIN, REGISTRO)
+   6. PÁGINAS DE LOGIN Y REGISTRO
    ========================================================================== */
 .auth-layout { 
     display: grid; 
@@ -407,7 +407,7 @@ header nav a:hover {
 }
 
 /* ==========================================================================
-   7. PÁGINAS DE CONTENIDO (CONTACTO, NOSOTROS, PAGO)
+   7. PÁGINAS DE CONTENIDO 
    ========================================================================== */
 .pagina-contenido {
     padding: 50px; 
@@ -540,7 +540,7 @@ footer {
 }
 
 /* ==========================================================================
-   9. MENÚ RESPONSIVE (HAMBURGUESA) PARA EL CELU
+   9. MENÚ PARA EL CELU
    ========================================================================== */
 .btn-menu {
     display: none;
